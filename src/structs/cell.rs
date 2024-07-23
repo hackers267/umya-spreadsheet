@@ -248,7 +248,7 @@ impl Cell {
         })
     }
 
-    pub(crate) fn get_formatted_value(&self) -> String {
+    pub fn get_formatted_value(&self) -> String {
         let value = self.get_value();
 
         // convert value
@@ -363,7 +363,7 @@ impl Cell {
                     }
                     _ => (),
                 },
-                Ok(Event::Eof) => panic!("Error not find {} end element", "c"),
+                Ok(Event::Eof) => panic!("Error: Could not find {} end element", "c"),
                 Err(e) => panic!("Error at position {}: {:?}", reader.buffer_position(), e),
                 _ => (),
             }
